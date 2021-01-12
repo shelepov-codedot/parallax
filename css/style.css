@@ -1,0 +1,119 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.task-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #bbdefb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    perspective: 1000px;
+    pointer-events: none;
+}
+
+.card-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    perspective: 1000px;
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 1s;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.card-front {
+    background-color: #ffffff;
+}
+
+.card-front__inner,
+.card-back__inner {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.card-front__inner {
+    transform: translateZ(50px);
+}
+
+.card-wrap {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0;
+}
+
+.card-img,
+.card-img__back {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    pointer-events: all;
+}
+
+.card-back {
+    background-color: #dbdbdb;
+    transform: rotateX(180deg);
+}
+
+.card-back__inner {
+    transform: translateZ(50px);
+}
+
+.card-front__inner h2,
+.card-back__inner h2 {
+    font-size: 26px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+
+.card-front__inner p,
+.card-back__inner p {
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
